@@ -1,0 +1,42 @@
+<!DOCTYPE HTML5>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+</head>
+<body width="100%" height ="100%" style="background-image:url(/static/image/diaryback.jpg); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;">
+<div  style="margin:50; padding:50; background-image:url(/static/image/paper3.jpg); background-repeat:no-repeat; background-position:center; background-size:cover;">
+    <div style="width:100%; height:100%; overflow:auto;"> 
+    <table class="table table-hover">
+        <thead>
+        <tr class="thead-dark" font-family="cursive">
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성일시</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% if article_list %}
+        {% for article in article_list %}
+        <tr>
+            <td>{{ loop.index }}</td>
+
+            <td>
+               <a href="/article/{{ article.article_index }}/">{{ article.article_title}}</a>
+            </td>
+            <td>{{ article.article_time.strftime('%Y-%m-%d %H:%M:%S')}}</td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="3">there is no diary in the diary list</td>
+        </tr>
+        {% endif %}
+        </tbody>
+    </table>
+     <a href="../write.html" class="btn btn-secondary">새글 작성</a>
+    </div>
+</div>
+</body>
+</html>

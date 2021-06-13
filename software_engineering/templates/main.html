@@ -1,0 +1,34 @@
+{%with messages = get_flashed_messages()%}
+  {%if messages %}
+    <script type="text/javascript">
+      alert("{{messages[-1]}}");
+    </script>
+    {%endif%}
+  {%endwith%}
+
+
+<DOCTYPE HTML5>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/static/mainStyle.css">
+    <title> Welcome to my Diary </title>
+  </head>
+
+  <body width="100%" height="100%"  style="background-image:url(/static/image/diaryback.jpg); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;">
+    <form method="POST"  method="post" class="loginForm">
+      <h2>MY Diary Login</h2>
+      <div class="idForm">
+        <input type="text" class="id" name="id" id="id" placeholder="ID">
+      </div>
+      <div class="passForm">
+        <input type="password" class="pw" name="pw" id="pw" placeholder="PW">
+      </div>
+      <button type="submit" class="btn">
+        LOG IN
+      </button>
+      <div class="bottomText">
+        Don't you have ID? <a href="register.html">sign up</a>
+      </div>
+    </form>
+  </body>
+</html>
